@@ -168,9 +168,6 @@ function showStatus() {
     return;
   }
 
-  /*for (var i=0; i < deck.length; i++) {
-    textArea.innerText += '\n' + getCardString(deck[i]);
-  }*/
   let dealerCardString = '';
   for (let i = 0; i < dealerCards.length; i++) {
     dealerCardString += getCardString(dealerCards[i]) + '\n';
@@ -206,11 +203,3 @@ function showStatus() {
 function getNextCard() {
   return deck.shift();
 }
-
-
-/*
-console.log("Welcome to Blackjack!");
-
-console.log("You are dealt: ");
-console.log("  " + getCardString(playerCards[0]));
-console.log("  " + getCardString(playerCards[1]));*/
