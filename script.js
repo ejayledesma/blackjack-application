@@ -18,6 +18,7 @@ let textArea = document.getElementById('text-area'),
 let gameStarted = false,
     gameOver = false,
     playerWon = false,
+    isItATie = false,
     dealerCards = [],
     playerCards = [],
     dealerScore = 0,
@@ -32,6 +33,7 @@ newGameButton.addEventListener('click', function() {
   gameStarted = true;
   gameOver = false;
   playerWon = false;
+  isItATie = false;
 
   deck = createDeck();
   shuffleDeck(deck);
@@ -156,6 +158,10 @@ function checkForEndOfGame() {
     if (playerScore > dealerScore) {
       playerWon = true;
     }
+    else if (playerScore == dealerScore) {
+      playerWon = false;
+      isItATie = true;
+    }
     else {
       playerWon = false;
     }
@@ -190,6 +196,9 @@ function showStatus() {
   if (gameOver) {
     if (playerWon) {
       textArea.innerText += 'YOU WIN!';
+    }
+    else if (isItATie) {
+      textArea.innerText += 'It\'s a TIE';
     }
     else {
       textArea.innerText += 'DEALER WINS';
